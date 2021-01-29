@@ -6,6 +6,6 @@ maximizedDockId: -1
 centralWidgetVisible: 1
 renderingMode: PLAIN
 orthographicViewHeight: 1
-textFiles: 1 "controllers/propeller_controller/propeller_controller.c" "controllers/main_controller/main_controller.py"
+textFiles: 0 "controllers/main_controller/main_controller.py"
 consoles: Console:All:All
 renderingDevicePerspectives: robot:camera;1;1;0;0
