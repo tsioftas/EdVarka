@@ -22,7 +22,7 @@ DEF NORTH_POINTER Solid {
   ]
 }
 DEF RUBBISH Robot {
-  translation -1.69 2.28 0.48
+  translation -1.69 -2.45 0.48
   children [
     GPS {
     }
@@ -431,8 +431,6 @@ DEF EdVarka Robot {
     }
   }
   controller "main_controller"
-  linearVelocity 0 0 0.09529854842309013
-  angularVelocity 0.0001338358405969911 1.2770660850631394e-05 1.4620352475633046e-10
 }
 DEF SWIMMING_POOL SolidPipe {
   translation 0 0 0.25
