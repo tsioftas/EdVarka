@@ -31,7 +31,8 @@ move_towards(position)
 - (extension?) function that controls speed based on distance from target
 
 
---- geometry
+--- utils
+
 class position
 - long
 - lat
