@@ -12,13 +12,18 @@ class position:
 def get_angle_between(position1, position2):
         atan = math.atan2(position2.latitude - position1.latitude,
                           position2.longitude - position1.longitude)
-        #print(atan)
         azimuth = -atan + math.pi/2
         if azimuth > math.pi:
             azimuth -= 2*math.pi
         return azimuth
-        
-point1 = position(0, 0)
-point2 = position(0, 1)
 
-print(math.degrees(get_angle_between(point1, point2)))
+# Returns the distance in meters between two longitude, latitude points
+def get_distance_between(position1, position2):
+    sin_delta_lat = math.sin(math.radians(position1.latitude - position2.latitude)/2)
+    sin_delta_long = math.sin(math.radians(position1.longitude - position2.longitude)/2)
+    cos_lat1 = math.cos(math.radians(position1.latitude))
+    cos_lat2 = math.cos(math.radians(position2.latitude))
+    a = sin_delta_lat**2 + cos_lat1*cos_lat2*(sin_delta_long**2)
+    c = 2*math.atan2(math.sqrt(a), math.sqrt(1-a))
+    R = 6371e3 # average Earth radius in meters
+    return R*c
