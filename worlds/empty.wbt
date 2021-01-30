@@ -3,8 +3,8 @@ WorldInfo {
   gpsCoordinateSystem "WGS84"
 }
 Viewpoint {
-  orientation -0.12498902456667095 0.2987424331326553 0.9461134722557614 3.85981306406337
-  position -6.180148236472898 6.195419519196491 11.638154071158867
+  orientation -0.01650819534364658 0.025843404007606784 0.9995296883813884 3.8998101135897034
+  position -2.087718185773189 0.6655549248191728 20.0554071661048
 }
 DEF NORTH_POINTER Solid {
   translation 0 4 0
@@ -22,7 +22,7 @@ DEF NORTH_POINTER Solid {
   ]
 }
 DEF RUBBISH Robot {
-  translation -1.69 -2.45 0.48
+  translation -1.62 1.74 0.48
   children [
     GPS {
     }
@@ -208,7 +208,7 @@ DEF EdVarka Robot {
       torqueConstants 1e-07 1e-07
       device RotationalMotor {
         name "right_propeller_motor"
-        acceleration 50
+        acceleration 1.3440853955972276
         maxVelocity 400
         maxTorque 15
       }

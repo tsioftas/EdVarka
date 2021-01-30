@@ -38,15 +38,24 @@ class hardware_interface:
     def set_left_propeller_velocity(self, v):
         self.set_propeller_velocity(self.left_propeller, v)
 
+    def set_left_propeller_acceleration(self, a):
+        self.set_propeller_acceleration(self.left_propeller, a)
+
     def set_right_propeller_position(self, p):
         self.set_propeller_position(self.right_propeller, p)
 
     def set_right_propeller_velocity(self, v):
         self.set_propeller_velocity(self.right_propeller, v)
 
+    def set_right_propeller_acceleration(self, a):
+        self.set_propeller_acceleration(self.right_propeller, a)
+
     def set_propeller_position(self, propeller, p):
         propeller.setPosition(p)
 
     def set_propeller_velocity(self, propeller, v):
         propeller.setVelocity(v)
+
+    def set_propeller_acceleration(self, propeller, a):
+        propeller.setAcceleration(a)
 

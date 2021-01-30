@@ -37,7 +37,8 @@ rm = robot_movement(hi)
 while robot.step(timestep) != -1:
     cr = hi.get_compass_reading()
     gr = hi.get_gps_values()
-    rubbish_pos = utils.position(-1.5166521507412318e-05, -2.213533575188517e-05)
+    tmp = (1.5720605808392372e-05, -1.4538317012609931e-05)
+    rubbish_pos = utils.position(tmp[1], tmp[0])
     print("Angle to turn: {}".format(rm.get_angle_to_target(rubbish_pos)))
     rm.face(rubbish_pos)
 
