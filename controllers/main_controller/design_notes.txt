@@ -42,3 +42,7 @@ get_angle_between(position1, position2)
 
 get_distance_between(position1, position 2)
 - return euclidean distance in meters 
+
+
+IMPROVEMENTS:
+robot_movement.get_angle_to_target sometimes returns the large angle to turn instead of the small one (when angle is ~π)

@@ -1,28 +1,61 @@
 #VRML_SIM R2021a utf8
 WorldInfo {
-  coordinateSystem "NUE"
   gpsCoordinateSystem "WGS84"
 }
 Viewpoint {
-  orientation 0.20424627182774435 0.93585142507472 0.28716819223250173 4.802796006715711
-  position -1.507571772696089 1.1319778153519398 0.26084733914371505
+  orientation -0.12498902456667095 0.2987424331326553 0.9461134722557614 3.85981306406337
+  position -6.180148236472898 6.195419519196491 11.638154071158867
+}
+DEF NORTH_POINTER Solid {
+  translation 0 4 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.3 1 0.1
+      }
+    }
+  ]
+}
+DEF RUBBISH Robot {
+  translation -1.69 2.28 0.48
+  children [
+    GPS {
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  controller "rubbish_controller"
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
+  rotation 1 0 0 1.5708
   floorSize 11 10
 }
-Robot {
-  translation 0 0.45 0
-  rotation 0 1 0 1.5708
+DEF EdVarka Robot {
+  translation -1.2514189726825758e-07 1.2417574118696645e-08 0.4498955359219358
+  rotation 0.9999999999915845 -2.8309995753530322e-06 2.9691915310308495e-06 1.5707959531129683
   children [
     Compass {
+      rotation -0.9999999999999999 0 0 1.5707953071795862
     }
     GPS {
-    }
-    InertialUnit {
     }
     DEF CAP Solid {
       translation -0.13 -0.06 -6.11772e-08
@@ -151,7 +184,7 @@ Robot {
       }
     }
     DEF BASE_ARM Solid {
-      translation 0.02 -5.0981e-08 -0.3
+      translation -0.1 -5.0981e-08 -0.3
       rotation 1 0 0 -1.5707953071795862
       children [
         Shape {
@@ -398,9 +431,12 @@ Robot {
     }
   }
   controller "main_controller"
+  linearVelocity 0 0 0.09529854842309013
+  angularVelocity 0.0001338358405969911 1.2770660850631394e-05 1.4620352475633046e-10
 }
 DEF SWIMMING_POOL SolidPipe {
-  translation 0 0.25 0
+  translation 0 0 0.25
+  rotation 1 0 0 1.5708
   height 0.5
   radius 3.5
   appearance DEF DARK_BROWN PBRAppearance {
@@ -410,7 +446,8 @@ DEF SWIMMING_POOL SolidPipe {
   }
 }
 DEF STILL_WATER Fluid {
-  translation 0 0.2 0
+  translation 0 0 0.25
+  rotation 1 0 0 1.5708
   children [
     DEF S Shape {
       appearance DEF WATER_APPEARANCE PBRAppearance {
@@ -430,7 +467,7 @@ DEF STILL_WATER Fluid {
   boundingObject USE S
 }
 DEF SWIMMING_POOL_BOTTOM Transform {
-  translation 0 0.02 0
+  rotation 1 0 0 1.5708
   children [
     Shape {
       appearance USE DARK_BROWN

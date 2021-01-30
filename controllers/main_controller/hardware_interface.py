@@ -1,28 +1,46 @@
 from controller import Robot
+import utils
 
 class hardware_interface:
 
     def __init__(self, robot):
         self.robot = robot
+        self.timestep = int(robot.getBasicTimeStep())
+        # sensors
+        self.compass = self.robot.getDevice("compass")
+        self.gps = self.robot.getDevice("gps")
+        # actuators
+        self.left_propeller = self.robot.getDevice("left_propeller_motor")
+        self.right_propeller = self.robot.getDevice("right_propeller_motor")
+
+    def enable_devices(self):
+        self.gps.enable(self.timestep)
+        self.compass.enable(self.timestep)
 
     def get_gps_values(self):
-        return self.robot.getDevice("gps").getValues()
+        return self.gps.getValues()
+
+    def get_compass_reading(self):
+        reading = self.compass.getValues()
+        print("Reading: {}".format(reading))
+        pos1 = utils.position(0,0.5)
+        pos2 = utils.position(reading[0], reading[1])
+        angle = utils.angle_between_vectors(pos1, pos2)
+        if reading[0] > 0:
+            angle *= -1
+        return angle
 
     def set_left_propeller_position(self, p):
-        left_prop = self.robot.getDevice("left_propeller_motor")
-        self.set_propeller_position(left_prop, p)
+        self.set_propeller_position(self.left_propeller, p)
 
     def set_left_propeller_velocity(self, v):
-        left_prop = self.robot.getDevice("left_propeller_motor")
-        self.set_propeller_velocity(left_prop, v)
+        self.set_propeller_velocity(self.left_propeller, v)
 
     def set_right_propeller_position(self, p):
-        right_prop = self.robot.getDevice("right_propeller_motor")
-        self.set_propeller_position(right_prop, p)
+        self.set_propeller_position(self.right_propeller, p)
 
     def set_right_propeller_velocity(self, v):
-        right_prop = self.robot.getDevice("right_propeller_motor")
-        self.set_propeller_velocity(right_prop, v)
+        self.set_propeller_velocity(self.right_propeller, v)
 
     def set_propeller_position(self, propeller, p):
         propeller.setPosition(p)
