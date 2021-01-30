@@ -4,6 +4,8 @@
 #  from controller import Robot, Motor, DistanceSensor
 from controller import Robot
 
+from hardware_interface import hardware_interface
+
 # create the Robot instance.
 robot = Robot()
 
@@ -16,13 +18,12 @@ inertial_unit = robot.getDevice("inertial unit")
 gps.enable(timestep)
 inertial_unit.enable(timestep)
 
-# propeller motors
-lpm = robot.getDevice("left_propeller_motor")
-lpm.setPosition(float('+inf'))
-lpm.setVelocity(-5)
-rpm = robot.getDevice("right_propeller_motor")
-rpm.setPosition(float('+inf'))
-rpm.setVelocity(5)
+# get the propeller running
+hi = hardware_interface(robot)
+hi.set_right_propeller_position(float('+inf'))
+hi.set_left_propeller_position(float('+inf'))
+hi.set_left_propeller_velocity(10)
+hi.set_right_propeller_velocity(10)
 
 # You should insert a getDevice-like function in order to get the
 # instance of a device of the robot. Something like:
