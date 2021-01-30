@@ -3,7 +3,6 @@
 # You may need to import some classes of the controller module. Ex:
 #  from controller import Robot, Motor, DistanceSensor
 
-#MIKE CHANGE
 from controller import Robot
 
 from hardware_interface import hardware_interface
