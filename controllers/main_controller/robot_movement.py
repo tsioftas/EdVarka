@@ -8,10 +8,10 @@ class robot_movement:
         self.FACING_THRESHOLD = math.radians(5)
         self.DISTANCE_THRESHOLD = 0.5 # meter(s)
         # PΙD controller for facing
-        self.INCLUDE_I_TERM_THRESHOLD_F = math.radians(7)
+        self.INCLUDE_I_TERM_THRESHOLD_F = math.radians(12)
         self.last_f_error = 0
         self.f_Kp = 2.5
-        self.f_Kd = 7500
+        self.f_Kd = 1000
         self.f_Ki = 0.3
         # PID controller for travelling
         self.INCLUDE_I_TERM_THRESHOLD_T = 0.4
@@ -79,7 +79,7 @@ class robot_movement:
         elif not self.hi.propellers_have_same_velocity():
             self.hi.set_left_propeller_velocity(0)
             self.hi.set_right_propeller_velocity(0)
-            for i in range(10):
+            for i in range(15):
                 self.hi.robot.step(self.hi.timestep)
         else:
             self.move_towards(target_position)
