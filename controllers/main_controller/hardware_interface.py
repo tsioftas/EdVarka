@@ -24,7 +24,7 @@ class hardware_interface:
 
     def get_compass_reading(self):
         reading = self.compass.getValues()
-        print("Reading: {}".format(reading))
+        #print("Reading: {}".format(reading))
         pos1 = utils.position(0,0.5)
         pos2 = utils.position(reading[0], reading[1])
         angle = utils.angle_between_vectors(pos1, pos2)

@@ -24,6 +24,7 @@ class robot_movement:
         own_azimuth = self.hi.get_compass_reading()
         gps_reading = self.hi.get_gps_values()
         own_position = utils.position(gps_reading[1], gps_reading[0])
+        print("Boat coords: ", gps_reading[1], gps_reading[0])
         azimuth_to_target = utils.get_angle_between(own_position, target_position)
         ret = azimuth_to_target - own_azimuth
         if abs(ret) > math.pi:
@@ -52,6 +53,7 @@ class robot_movement:
     def get_distance_to_target(self, target_position):
         gps_reading = self.hi.get_gps_values()
         own_position = utils.position(gps_reading[1], gps_reading[0])
+        print("Boat coords: {}".format(own_position.longitude,own_position.latitude))
         return utils.get_distance_between(own_position, target_position)
 
     def is_in_proximity(self, target_position):
