@@ -31,6 +31,9 @@ class hardware_interface:
         if reading[0] > 0:
             angle *= -1
         return angle
+    
+    def propellers_have_same_velocity(self):
+        return self.left_propeller.getVelocity() == self.right_propeller.getVelocity()
 
     def set_left_propeller_position(self, p):
         self.set_propeller_position(self.left_propeller, p)

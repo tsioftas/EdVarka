@@ -40,6 +40,4 @@ while robot.step(timestep) != -1:
     tmp = (1.1925976970955011e-05, -8.075639040032129e-07)
     rubbish_pos = utils.position(tmp[1], tmp[0])
     print("Angle to turn: {}".format(rm.get_angle_to_target(rubbish_pos)))
-    #rm.face(rubbish_pos)
-    rm.move_towards(rubbish_pos)
-
+    rm.goto_long_lat(rubbish_pos)
