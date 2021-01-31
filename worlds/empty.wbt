@@ -7,7 +7,7 @@ Viewpoint {
   position -6.641319191104948 5.7542860721002365 10.471200002262497
 }
 DEF NORTH_POINTER Solid {
-  translation 0 4 0
+  translation 0 12.23 0
   children [
     Shape {
       appearance PBRAppearance {
@@ -46,7 +46,7 @@ TexturedBackgroundLight {
 }
 RectangleArena {
   rotation 1 0 0 1.5708
-  floorSize 11 10
+  floorSize 25 25
 }
 DEF EdVarka Robot {
   translation 2.03359 -1.74493 0.492168
@@ -489,7 +489,7 @@ DEF SWIMMING_POOL SolidPipe {
   translation 0 0 0.25
   rotation 1 0 0 1.5708
   height 0.5
-  radius 3.5
+  radius 12
   appearance DEF DARK_BROWN PBRAppearance {
     baseColor 0.501961 0.337255 0.2
     roughness 1.1102230246251565e-16
@@ -509,7 +509,7 @@ DEF STILL_WATER Fluid {
       }
       geometry Cylinder {
         height 0.4
-        radius 3.4
+        radius 11.9
         subdivision 24
       }
     }
@@ -524,7 +524,7 @@ DEF SWIMMING_POOL_BOTTOM Transform {
       appearance USE DARK_BROWN
       geometry Cylinder {
         height 0.02
-        radius 3.5
+        radius 12
         subdivision 24
       }
     }
